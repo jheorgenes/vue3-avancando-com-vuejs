@@ -21,21 +21,14 @@
 <body>
   <div id="app">
     <h1>Manipulando CSS com VueJS</h1>
-    <p :class="{ 
-      vermelho: eVermelho, 
-      'texto-branco': eTextoBranco, 
-      destaque: eDestaque 
-    }">
-      Definindo classes com objetos
+    <p :class="[estilo2, { vermelho: true, destaque: eDestaque }]">
+      Definindo classes com arrays
     </p>
-    <button @click="eVermelho = !eVermelho">
-      <span v-text="eVermelho ? 'Remover background' : 'Aplicar background'"></span>
-    </button>
-    <button @click="eTextoBranco = !eTextoBranco">
-      <span v-text="eTextoBranco ? 'Remover texto branco' : 'Aplicar texto branco'"></span>
+    <button @click="estilo2 = ''">
+      Remover estilo 2
     </button>
     <button @click="eDestaque = !eDestaque">
-      <span v-text="eDestaque ? 'Remover destaque' : 'Aplicar destaque'"></span>
+      Remover estilo 2
     </button>
   </div>
   <script>
@@ -43,8 +36,9 @@
     const vm = new Vue({
       el: '#app',
       data: {
-        eVermelho: false,
-        eTextoBranco: false,
+        estilo1: 'vermelho',
+        estilo2: 'texto-branco',
+        estilo3: 'destaque',
         eDestaque: false
       }
     })
