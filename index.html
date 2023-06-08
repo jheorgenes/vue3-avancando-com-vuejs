@@ -16,19 +16,36 @@
     <div :style="estilo">
       Definindo styles com objetos
     </div>
-    <button @click="estilo.background = 'green'">Mudar para verde</button>
+
+    {{ estilo }}
+    <button @click="tamanhoTexto += 5">Aumentar texto</button>
   </div>
   <script>
 
     const vm = new Vue({
       el: '#app',
       data: {
-        estilo: {
-          background: 'blue',
-          width: 250 + 'px',
-          height: 100 + 'px',
-          padding: 10 + 'px',
-          fontSize: 30 + 'px'
+        tamanhoTexto: 30
+      },
+      computed: {
+        estilo() {
+          let width = Math.floor((Math.random() * 100) + 100);
+          let height = Math.floor((Math.random() * 100) + 100);
+
+          let background = 'blue';
+          let horas = new Date();
+
+          if(horas.getHours() > 17) {
+            background = 'red'
+          }
+
+          return {
+            background: background,
+            width: width + 'px',
+            height: height + 'px',
+            padding: 10 + 'px',
+            fontSize: this.tamanhoTexto + 'px'
+          }
         }
       }
     })
