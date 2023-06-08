@@ -11,20 +11,28 @@
   </style>
 </head>
 <body>
+
   <div id="app">
-    <h1>{{ texto1 }}</h1>
-    <p>{{ texto2 }}</p>
+
   </div>
+  
   <script>
     const vm = new Vue({
       // el: '#app',
+      template: `
+        <div>
+          <h1>{{ texto1 }}</h1>
+          <p>{{ texto2 }}</p>
+        </div>
+      `,
       data: {
         texto1: 'Template',
-        texto1: 'Formas alternativas de carregar o template'
+        texto2: 'Formas alternativas de carregar o template'
       }
     })
 
-    vm.$mount('#app')
+    vm.$mount('#app');
+
   </script>
 </body>
 </html>
