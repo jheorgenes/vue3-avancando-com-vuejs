@@ -13,26 +13,22 @@
 <body>
 
   <div id="app">
-
+    <h1>{{ titulo }}</h1>
+    <p>{{ descricao }}</p>
   </div>
   
   <script>
-    const vm = new Vue({
-      // el: '#app',
-      template: `
-        <div>
-          <h1>{{ texto1 }}</h1>
-          <p>{{ texto2 }}</p>
-        </div>
-      `,
-      data: {
-        texto1: 'Template',
-        texto2: 'Formas alternativas de carregar o template'
+    const BoasVindasVueApp = {
+      data() {
+        return {
+          titulo: 'Boas-vindas',
+          descricao: 'Chegou a hora de trabalharmos com o VueJS 3'
+        }
       }
-    })
+    }
 
-    vm.$mount('#app');
-
+    // Vue.createApp({}) //Também pode ser utilizado passando objeto diretamente dentro de createApp
+    Vue.createApp(BoasVindasVueApp).mount('#app')
   </script>
 </body>
 </html>
